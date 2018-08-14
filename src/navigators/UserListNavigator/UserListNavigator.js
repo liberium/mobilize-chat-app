@@ -1,18 +1,17 @@
+import * as React from 'react'
 import { Dimensions } from 'react-native'
-import { createDrawerNavigator } from 'react-navigation'
-import { UserListScreen, UserProfileScreen } from 'screens'
+import { createDrawerNavigator, createStackNavigator } from 'react-navigation'
+import { UserListScreen, UserProfileScreen } from '@screens'
 
 const screenWidth = Dimensions.get('screen').width
 
 const UserListNavigator = createDrawerNavigator(
-  {
-    UserList: UserListScreen
-  },
+  { UserList: UserListScreen },
   {
     initialRouteName: 'UserList',
     drawerPosition: 'right',
     drawerWidth: 0.9 * screenWidth,
-    contentComponent: UserProfileScreen
+    contentComponent: ({ navigation }) => <UserProfileScreen navigation={navigation} />
   }
 )
 
