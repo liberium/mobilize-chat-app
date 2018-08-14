@@ -1,13 +1,13 @@
 import * as React from 'react'
-import { StatusBar } from 'react-native'
-import { UserListNavigator } from 'navigators'
+import { Provider } from 'react-redux'
+import { UserListNavigator } from '@navigators'
+import store from '@store'
 
 function App() {
   return (
-    <React.Fragment>
-      <StatusBar hidden={false} />
+    <Provider store={store}>
       <UserListNavigator />
-    </React.Fragment>
+    </Provider>
   )
 }
 
